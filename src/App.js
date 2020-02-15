@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import Navbar from './components/Navbar.js';
 import Table from './components/Table.js';
@@ -15,7 +16,19 @@ class App extends React.Component {
             </div>
         );
     }
+=======
+import React, { useState, useReducer } from "react";
+import Navbar from "./components/Navbar.js";
+import Subscribe from "./components/Subscribe.js";
+function App() {
+  return (
+    <div className="App">
+      {/* <Navbar/> */}
+      <Navbar />
+      <Subscribe />
+    </div>
+  );
+>>>>>>> 4b3ee5f768de9408aff8dbe176410040b4f6a08a
 }
-
 
 export default App;
