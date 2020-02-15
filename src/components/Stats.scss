@@ -1,21 +1,24 @@
 .Stats-wrapper {
-  position: relative;
-  height: 300px;
-  width: 100%;
-  margin-top: auto;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    position: relative;
+    width: 100%;
+    margin: 2rem auto;
+    overflow-x: auto;
 }
 
 .box {
-  float: left;
-  margin: 10px;
-  padding: 90px;
-  min-width: 30%;
-  border: 1px solid #dddddd;
-  background-color: #341541;
+    // margin: 10px;
+    // padding: 90px;
+    // min-width: 30%;
+    margin: auto;
+    padding: 2rem;
+    width: 100%;
+    max-width: 200px;
+    border: 1px solid #dddddd;
+    background-color: #341541;
+    color: white;
+    text-align: center;
 }
 
-.box h5,
-h1 {
-  text-align: center;
-  color: white;
-}

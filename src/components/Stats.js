@@ -1,5 +1,7 @@
 import React from "react";
 import "./Stats.scss";
+import { Container, Row, Col } from 'reactstrap';
+
 const Stats = props => {
   return (
     <div className="Stats-wrapper">
@@ -15,7 +17,6 @@ const Stats = props => {
         <h1>4182</h1>
         <h5>Total Cured</h5>
       </div>
-      ;
     </div>
   );
 };
