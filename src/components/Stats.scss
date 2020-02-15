@@ -3,20 +3,16 @@
     gap: 2rem;
     grid-template-columns: 1fr 1fr 1fr;
     position: relative;
+    max-width: 900px;
     width: 100%;
     margin: 2rem auto;
     overflow-x: auto;
 }
 
 .box {
-    // margin: 10px;
-    // padding: 90px;
-    // min-width: 30%;
     margin: auto;
     padding: 2rem;
     width: 100%;
-    max-width: 200px;
-    border: 1px solid #dddddd;
     background-color: #341541;
     color: white;
     text-align: center;

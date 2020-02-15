@@ -12,9 +12,11 @@ function App() {
             <div style={{height:"400px"}}>
                 <Map />
             </div>
-            <Stats />
-            <Table />
-            <Subscribe />
+            <div style={{padding: '0 2rem'}}>
+                <Stats />
+                <Table />
+                <Subscribe />
+            </div>
         </div>
     );
 }

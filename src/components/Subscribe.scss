@@ -1,29 +1,31 @@
 form {
-  max-width: 50%;
-  margin: auto;
-  background-color: #442255;
-  text-align: center;
-  padding: 10px;
+    margin: 2rem auto;
+    padding: 10px;
+    max-width: 900px;
+    width: 100%;
+    background-color: #442255;
+    color: white;
+    text-align: center;
 }
 
 label {
-  padding: 10px;
-  display: inline-block;
-  min-width: 50%;
+    padding: 10px;
+    display: inline-block;
+    min-width: 50%;
 }
 
 .Input {
-  max-width: 50%;
-
-  display: block;
-  padding: 10px;
+    max-width: 50%;
+    background-color: red !important;
+    display: block;
+    padding: 10px;
 }
 
 button {
-  text-align: center;
+    text-align: center;
 }
 
 .btn.btn-warning {
-  margin-top: 10px;
-  min-width: 100%;
+    margin-top: 10px;
+    min-width: 100%;
 }

@@ -42,6 +42,7 @@ const Subscribe = () => {
 
   return (
     <Form className="subscribe-wrap">
+      <h2>Subscribe for Updates!</h2>
       <label>
         <Input
           type="text"

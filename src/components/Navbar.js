@@ -6,7 +6,7 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink
+    NavLink,
 } from 'reactstrap';
 import './Navbar.scss';
 
