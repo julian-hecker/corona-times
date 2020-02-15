@@ -1,4 +1,9 @@
 .navbar {
     position: sticky;
     background-color: #341541 !important;
+    font-family: 'Special Elite', serif;
+    font-size: 150%;
+    &-brand {
+        font-size: 2rem;
+    }
 }

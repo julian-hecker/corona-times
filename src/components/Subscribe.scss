@@ -8,15 +8,14 @@ form {
     text-align: center;
 }
 
-label {
-    padding: 10px;
-    display: inline-block;
-    min-width: 50%;
-}
+// label {
+//     padding: 10px;
+//     display: inline-block;
+//     min-width: 50%;
+// }
 
-.Input {
-    max-width: 50%;
-    background-color: red !important;
+.input {
+    // max-width: 50%;
     display: block;
     padding: 10px;
 }
@@ -26,6 +25,9 @@ button {
 }
 
 .btn.btn-warning {
-    margin-top: 10px;
+    margin-top: 1rem;
     min-width: 100%;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bolder;
 }

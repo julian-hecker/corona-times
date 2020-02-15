@@ -11,7 +11,7 @@ const mapStyles = {
 class MapContainer extends Component {
     render() {
         return (
-            <Map
+            <Map 
                 google={this.props.google}
                 zoom={4}
                 style={mapStyles}
@@ -24,7 +24,9 @@ class MapContainer extends Component {
     }
 }
 
-export default GoogleApiWrapper({
+const GoogleWrapper = GoogleApiWrapper({
     // apiKey: process.env.REACT_APP_GOOGLE_KEY
-    apiKey: 'AIzaSyClXTYb5GEEE_9qnO62s1fO6Gyh-BWTSpY'
+    // apiKey: 'AIzaSyClXTYb5GEEE_9qnO62s1fO6Gyh-BWTSpY'
 })(MapContainer);
+
+export default GoogleWrapper;
