@@ -4,18 +4,17 @@ import Subscribe from "./components/Subscribe.js";
 import Table from "./components/Table.js";
 import Map from "./components/Map.js";
 import Stats from "./components/Stats.js";
-function App() {
-  return (
-    <div className="App">
-      {/* <Navbar/> */}
 
-      <Navbar />
-      {/* <Map /> */}
-      <Stats />
-      <Table />
-      <Subscribe />
-    </div>
-  );
+function App() {
+    return (
+        <div className="App">
+            <Navbar />
+            {/* <Map /> */}
+            <Stats />
+            <Table />
+            <Subscribe />
+        </div>
+    );
 }
 
 export default App;
