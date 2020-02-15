@@ -8,7 +8,7 @@ import {
   DropdownItem
 } from "reactstrap";
 import { Form, Input } from "reactstrap";
-import axios from "axios";
+//import axios from "axios";
 
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const dburl = "http://www.ianmatlak.com:8443/country.php";
@@ -28,17 +28,17 @@ const Subscribe = () => {
 
   const toggle = () => setDropdownOpen(prevState => !prevState);
 
-  // No 'Access-Control-Allow-Origin' header is present on the requested ERROR
-  const countryList = () => {
-    axios(proxyurl + dburl)
-      .then(({ data }) => {
-        let countrylist1 = data;
-        console.log(countrylist1);
-      })
-      .catch(() =>
-        console.log("Can’t access " + dburl + " response. Blocked by browser?")
-      );
-  };
+  // // No 'Access-Control-Allow-Origin' header is present on the requested ERROR
+  // const countryList = () => {
+  //   axios(proxyurl + dburl)
+  //     .then(({ data }) => {
+  //       let countrylist1 = data;
+  //       console.log(countrylist1);
+  //     })
+  //     .catch(() =>
+  //       console.log("Can’t access " + dburl + " response. Blocked by browser?")
+  //     );
+  // };
 
   return (
     <Form className="subscribe-wrap">
@@ -70,8 +70,9 @@ const Subscribe = () => {
           <DropdownItem>Japans</DropdownItem>
         </DropdownMenu>
       </Dropdown>*/}
-      {/*Only get activated when clicking the drop down menu*/}
-      <Button type="button" className="btn btn-warning" onClick={countryList}>
+      {/*Only get activated when clicking the drop down menu
+      onClick={countryList}*/}
+      <Button type="button" className="btn btn-warning">
         Get Notified!
       </Button>
     </Form>
