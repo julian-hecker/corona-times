@@ -2,12 +2,28 @@ form {
   max-width: 50%;
   margin: auto;
   background-color: #442255;
+  text-align: center;
+  padding: 10px;
 }
 
 label {
   padding: 10px;
+  display: inline-block;
+  min-width: 50%;
 }
 
-input {
+.Input {
+  max-width: 50%;
+
   display: block;
+  padding: 10px;
+}
+
+button {
+  text-align: center;
+}
+
+.btn.btn-warning {
+  margin-top: 10px;
+  min-width: 100%;
 }
