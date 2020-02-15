@@ -1,21 +1,14 @@
-import React from 'react';
-import Navbar from './components/Navbar.js';
-import Table from './components/Table.js';
-import Map from './components/Map.js';
-// https://console.cloud.google.com/apis/credentials?project=cewit-corona
-
-class App extends React.Component {
-    render() {
-        return (
-            <div className="App">
-                <Navbar />
-                <Map />
-
-                <Table/>
-            </div>
-        );
-    }
+import React, { useState, useReducer } from "react";
+import Navbar from "./components/Navbar.js";
+import Subscribe from "./components/Subscribe.js";
+function App() {
+  return (
+    <div className="App">
+      {/* <Navbar/> */}
+      <Navbar />
+      <Subscribe />
+    </div>
+  );
 }
-
 
 export default App;
