@@ -1,13 +1,12 @@
 import React from 'react';
-// import Navbar from './components/Navbar/Navbar.js';
-import RSNavbar from './components/RSNavbar/Navbar.js';
+import Navbar from './components/Navbar.js';
 
 class App extends React.Component {
     render() {
         return (
             <div className="App">
                 {/* <Navbar/> */}
-                <RSNavbar/>
+                <Navbar/>
             </div>
         );
     }
