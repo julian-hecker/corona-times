@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 // https://www.digitalocean.com/community/tutorials/how-to-integrate-the-google-maps-api-into-react-applications
+// https://console.developers.google.com/apis/credentials?project=cewit-corona
 
 const mapStyles = {
     width: '100%',
-    height: '100%',
-    maxHeight: '400px'
+    height: '400px',
 };
 
-export class MapContainer extends Component {
+class MapContainer extends Component {
     render() {
         return (
             <Map
@@ -25,5 +25,6 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-    apiKey: process.env.REACT_APP_GOOGLE_KEY
+    // apiKey: process.env.REACT_APP_GOOGLE_KEY
+    // apiKey: 'AIzaSyClXTYb5GEEE_9qnO62s1fO6Gyh-BWTSpY'
 })(MapContainer);

@@ -9,7 +9,9 @@ function App() {
     return (
         <div className="App">
             <Navbar />
-            {/* <Map /> */}
+            <div style={{height:"400px"}}>
+                <Map />
+            </div>
             <Stats />
             <Table />
             <Subscribe />
