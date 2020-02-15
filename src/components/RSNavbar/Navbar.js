@@ -6,12 +6,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
+  NavLink
 } from 'reactstrap';
 import './Navbar.scss';
 
@@ -22,22 +17,22 @@ const Example = (props) => {
 
   return (
     <div>
-      <Navbar color="dark" light expand="md">
+      <Navbar color="dark" dark expand="md">
         <NavbarBrand href="/">Corona Times</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Stats</NavLink>
+              <NavLink href="/stats/">Stats</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/components/">Info</NavLink>
+              <NavLink href="/info/">Info</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/components/">Form</NavLink>
+              <NavLink href="/form/">Form</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/components/">News</NavLink>
+              <NavLink href="/news/">News</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
