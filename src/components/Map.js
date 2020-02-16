@@ -1,7 +1,7 @@
 import React from "react";
 import "./Map.scss";
 import { VectorMap } from "react-jvectormap";
-const { getCode, getName, getData } = require("country-list");
+import { getAlpha2Code as getCode} from "i18n-iso-countries";
 
 
 const handleClick = (e, countryCode) => {
@@ -13,34 +13,16 @@ class Map extends React.Component {
 
     render() {
 
-
-
         const stats = this.props.stats;
+        let mapData = {};
+        
         if (stats) {
-
-            console.log(stats);
-
-            let mapData = {
-                CN: 68502,
-                JP: 408,
-                SG: 72,
-                HK: 56,
-                TH: 34,
-                KR: 29,
-                MY: 22,
-                TW: 18,
-                VN: 16,
-                DE: 16,
-                AU: 16,
-                US: 16,
-                FR: 16,
-            };
-
-
-
-            console.log(stats.map(item => {
-                return item.country;
-            }));
+            stats.forEach(item => {
+                console.log(getCode(item.country));
+                let key = getCode(item.country);
+                mapData[key] = item.infected;
+                console.log(mapData[key]);
+            });
 
 
             return (

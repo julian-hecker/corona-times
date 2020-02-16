@@ -14,7 +14,7 @@ function Info() {
             <p>(Source: <a href="https://www.who.int/health-topics/coronavirus">WHO.IT</a> -World Health Organization)</p>
             <h2>About us</h2>
             Thanks for checking out our website.  We appreciate your time at, and we had fun at this year’s CEWIT Hackathon!
-            -Ian Matlack, Julian Hecker, Philip Guerrero
+            -Ian Matlak, Julian Hecker, Philip Guerrero
         </article>
 
 

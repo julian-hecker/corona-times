@@ -40,7 +40,7 @@ class App extends React.Component {
                     tableData: data['data'],
                     tableLoading: false
                 });
-                console.log(data['data']);
+                // console.log(data['data']);
             })
             .catch(error => console.log(error));
 
@@ -53,7 +53,7 @@ class App extends React.Component {
                 statsData: data['data'],
                 statsLoading: false
             });
-            console.log(data['data']);
+            // console.log(data['data']);
         })
         .catch(error => console.log(error));
     }
@@ -71,16 +71,16 @@ class App extends React.Component {
                         </Route>
                         <Route path="/stats">
                             <Map 
-                                stats={this.state.tableData} 
-                                loading={this.state.tableLoading}    
+                                stats={tableData} 
+                                loading={tableLoading}    
                             />
                             <Stats 
-                                stats={this.state.statsData} 
-                                loading={this.state.statsLoading}    
+                                stats={statsData} 
+                                loading={statsLoading}    
                             />
                             <Table 
-                                stats={this.state.tableData} 
-                                loading={this.state.tableLoading}    
+                                stats={tableData} 
+                                loading={tableLoading}    
                             />
                             <Subscribe />
                         </Route>
