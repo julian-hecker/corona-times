@@ -11,6 +11,9 @@ import Subscribe from "./components/Subscribe.js";
 import Table from "./components/Table.js";
 import Map from "./components/Map.js";
 import Stats from "./components/Stats.js";
+import Survey from "./components/Survey.js";
+import Info from "./components/Info.js";
+
 
 function App() {
     return (
@@ -30,10 +33,10 @@ function App() {
                         <Subscribe />
                     </Route>
                     <Route path="/info">
-                        <h2>article goes here</h2>
+                        <Info/>
                     </Route>
                     <Route path="/form">
-                        <h2>survey goes here</h2>
+                        <Survey />
                     </Route>
                 </Switch>
             </Router>
