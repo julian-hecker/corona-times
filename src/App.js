@@ -18,7 +18,7 @@ import Info from "./components/Info.js";
 function App() {
     return (
         <div className="App">
-            {/* <Router>
+            <Router>
                 <Navbar />
                 <Switch>
                     <Route exact path="/">
@@ -39,14 +39,7 @@ function App() {
                         <Survey />
                     </Route>
                 </Switch>
-            </Router> */}
-            <Navbar />
-            <div style={{height:"400px"}}>
-                <Map />
-            </div>
-            <Stats />
-            <Table />
-            <Subscribe />
+            </Router>
         </div>
     );
 }
