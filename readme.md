@@ -12,8 +12,50 @@ The app gets live data by scraping sites that are reporting on cases of Corona V
 There is a section to subscribe for updates about Coronavirus in one's own home country, a page with information about the virus, as well as a questionnaire which can help determine if a person is at risk for the virus and what they can do if they are.
 
 ## Web Scraping
+Python 3.8.0
+Required packages:
+```
+pip3 install mysql-connector-python
+pip3 install beautifulsoup4
+```
+Uses webscraping to collect information of the corona virus off the web and stores it in a database.
 
+**connection.php and index.php are help on the webserver.
+Everything else is stays in the same folder and is executed by running main.py**
 
+**Trigger for tbl_Outbreak**
+
+Time: Before
+
+Event: Insert
+```sql
+INSERT INTO tbl_OutbreakHistory (Country, Infected, Dead, Continent, Date) VALUES (new.Country, new.Infected, new.Dead, new.Continent, new.Date)
+```
+**Table Layout**
+```sql
+CREATE TABLE tbl_Outbreak (
+ Country varchar(20) NOT NULL,
+ Infected int(12) NOT NULL,
+ Dead int(12) NOT NULL,
+ Continent varchar(20) NOT NULL,
+ Date datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+
+CREATE TABLE tbl_OutbreakHistory (
+ Country varchar(20) NOT NULL,
+ Infected int(12) NOT NULL,
+ Dead int(12) NOT NULL,
+ Continent varchar(20) NOT NULL,
+ Date datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+
+CREATE TABLE tbl_OutbreakTotals (
+ Infected int(11) NOT NULL,
+ Dead int(11) NOT NULL,
+ Cured int(11) DEFAULT NULL,
+ Date datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+```
 ## APIs
 
 
