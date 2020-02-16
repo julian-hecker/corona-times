@@ -11,6 +11,9 @@ The app gets live data by scraping sites that are reporting on cases of Corona V
 
 There is a section to subscribe for updates about Coronavirus in one's own home country, a page with information about the virus, as well as a questionnaire which can help determine if a person is at risk for the virus and what they can do if they are.
 
+## Languages
+Corona Times has a frontend built in React, backend server running PHP, web scraping running in python, databases in SQL, and a whole mess.
+
 
 ## Web Scraping
 Python 3.8.0
