@@ -2,6 +2,16 @@ import React from 'react';
 import { Table } from 'reactstrap';
 import './Table.scss';
 
+let xhrResult;
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://www.ianmatlak.com:8443/corona/api/table.php');
+xhr.onload = function () {
+    xhrResult = xhr.responseText;
+    console.log(xhrResult);
+}
+xhr.send();
+
+
 const Example = (props) => {
     return (
         <div className="table-wrapper">

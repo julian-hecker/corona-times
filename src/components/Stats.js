@@ -1,6 +1,17 @@
 import React from "react";
 import "./Stats.scss";
 
+
+let xhrResult;
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://www.ianmatlak.com:8443/corona/api/stat.php');
+xhr.onload = function () {
+    xhrResult = xhr.responseText;
+    console.log(xhrResult);
+}
+xhr.send();
+
+
 const Stats = props => {
     return (
         <div className="Stats-wrapper">
