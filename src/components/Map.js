@@ -1,7 +1,7 @@
 import React from "react";
 import "./Map.scss";
-import mapData from "./MapData";
 import { VectorMap } from "react-jvectormap";
+const { getCode, getName, getData } = require("country-list");
 
 
 const handleClick = (e, countryCode) => {
@@ -9,17 +9,42 @@ const handleClick = (e, countryCode) => {
 };
 
 
-
-
 class Map extends React.Component {
-    constructor(props) {
-        super(props);
-        console.log(props);
-    }
 
     render() {
-        return (
-            <div className="map">
+
+
+
+        const stats = this.props.stats;
+        if (stats) {
+
+            console.log(stats);
+
+            let mapData = {
+                CN: 68502,
+                JP: 408,
+                SG: 72,
+                HK: 56,
+                TH: 34,
+                KR: 29,
+                MY: 22,
+                TW: 18,
+                VN: 16,
+                DE: 16,
+                AU: 16,
+                US: 16,
+                FR: 16,
+            };
+
+
+
+            console.log(stats.map(item => {
+                return item.country;
+            }));
+
+
+            return (
+                <div className="map">
                 <VectorMap
                     map={"world_mill"}
                     backgroundColor="#341541"
@@ -52,9 +77,10 @@ class Map extends React.Component {
                             }
                         ]
                     }}
-                />
-            </div>
-        );
+                    />
+                </div>
+            );
+        } else { return null; }
     }
 };
 export default Map;
