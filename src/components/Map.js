@@ -1,46 +1,60 @@
-import React from 'react';
-import { Map, GoogleApiWrapper, Polygon } from 'google-maps-react';
-import chinaPath from './chinaCoords.js';
-// https://www.digitalocean.com/community/tutorials/how-to-integrate-the-google-maps-api-into-react-applications
-// https://console.developers.google.com/apis/credentials?project=cewit-corona
+import React from "react";
+import "./Map.scss";
+import mapData from "./MapData";
+import { VectorMap } from "react-jvectormap";
 
-const mapStyles = {
-    width: '100%',
-    height: '400px',
+
+const handleClick = (e, countryCode) => {
+    console.log(countryCode);
 };
 
 
-class MapContainer extends React.Component {
+
+
+class Map extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            path: chinaPath,
-        }
+        console.log(props);
     }
+
     render() {
         return (
-            <Map 
-                google={this.props.google}
-                zoom={2}
-                style={mapStyles}
-                initialCenter={{
-                    lat: 35,
-                    lng: 120
-                }}
-            >
-                <Polygon 
-                    path={this.state.path}
-                    strokeColor={"#ff0000"}
-                    fillColor={"#ff0000"}
+            <div className="map">
+                <VectorMap
+                    map={"world_mill"}
+                    backgroundColor="#341541"
+                    zoomOnScroll={false}
+                    containerStyle={{
+                        width: "100%",
+                        height: "50vh"
+                    }}
+                    onRegionClick={handleClick} //gets the country code
+                    containerClassName="map-container"
+                    regionStyle={{
+                        initial: {
+                            fill: "#7d9",
+                            "fill-opacity": 0.9,
+                            stroke: "none",
+                            "stroke-width": 0,
+                            "stroke-opacity": 0
+                        },
+                        hover: {
+                            "fill-opacity": 0.8,
+                            cursor: "pointer"
+                        },
+                    }}
+                    series={{
+                        regions: [
+                            {
+                                values: mapData, //this is your data
+                                scale: ["#aaaa00", "#ff0000"], //your color game's here
+                                normalizeFunction: "polynomial"
+                            }
+                        ]
+                    }}
                 />
-            </Map>
+            </div>
         );
     }
-}
-
-const GoogleWrapper = GoogleApiWrapper({
-    // apiKey: process.env.REACT_APP_GOOGLE_KEY
-    apiKey: 'AIzaSyClXTYb5GEEE_9qnO62s1fO6Gyh-BWTSpY'
-})(MapContainer);
-
-export default GoogleWrapper;
+};
+export default Map;
