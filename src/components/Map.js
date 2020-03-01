@@ -16,6 +16,7 @@ class Map extends React.Component {
     if (stats) {
       stats.forEach(item => {
         let key = countries.getAlpha2Code(item.country, "en");
+        console.log(key);
         if (!key) {
           // Sometimes countries don't get coded?
           switch (item.country) {
