@@ -35,6 +35,9 @@ class Map extends React.Component {
             case "Japan (+Diamond Princess)":
               key = "JP";
               break;
+            case "North Macedonia":
+              key = "MK";
+              break;
             default:
               key = undefined;
           }

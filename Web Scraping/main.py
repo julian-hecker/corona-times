@@ -3,9 +3,10 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import csv
 import connect
+import requests
+import sys
 
 # document.querySelectorAll(".maincounter-number") SEACHING ALL DIVS
-
 
 data = ''
 totalInfected = 0
@@ -27,6 +28,22 @@ urlopen(overview_url).close()
 country_list_soup = BeautifulSoup(country_list_html, 'lxml')
 overview_soup = BeautifulSoup(overview_html, 'lxml')
 
+# used to write overview_soup to file, need to cast it as str
+# fileformatOverview = overview_soup.prettify('utf-8')
+
+# gets the date of last updated from page
+# overview_soup.find('div', style=lambda value: value and 'font-size:13px' in value and 'color:#999' in value):
+
+# web scraped most recent infected total
+webTotalInfectedDead = overview_soup.find_all(
+    'div', {"class": "maincounter-number"})
+
+webTotalInfected = webTotalInfectedDead[0].text.replace(
+    ',', '').replace(" ", "")
+
+webTotalDead = webTotalInfectedDead[1].text.replace(
+    ',', '').replace(" ", "")
+
 # Finds the amount cured
 totalOVcured = overview_soup.find_all(
     'div', {'style': 'color:#8ACA2B '})
@@ -36,7 +53,21 @@ for tag in totalOVcured:
     for tag in tdtags:
         totalCured = int(tag.text.replace(',', ''))
 
-    # writes the parsed html data to a file while adding data to a string variable
+# gets our recent infected total from api
+results = requests.get('https://www.ianmatlak.com/api/stat.php')
+json = results.json()
+dbTotalInfected = json['data'][0]['infected']
+dbTotalDead = json['data'][0]['dead']
+dbTotalCured = json['data'][0]['cured']
+
+# compares if they are the same then end, if they are different then continue
+if(webTotalInfected == dbTotalInfected and webTotalDead == dbTotalDead and str(totalCured) == dbTotalCured):
+    print('true')
+    print(webTotalInfectedDead[0])
+    print(dbTotalInfected)
+    sys.exit()
+
+# writes the parsed html data to a file while adding data to a string variable
 with open('CountryCount.txt', 'w') as file:
     for td_tag in country_list_soup.find_all('td'):
         file.write(td_tag.text)
@@ -75,6 +106,7 @@ with open('CountryCount.txt', newline='\n') as csvfile:
     csv_reader = csv.reader(csvfile, delimiter=':')
     line_count = 0
     # Open connection to database
+
     mycursor = connect.mysql.cursor()
     # delete and recreate table
     print('DELETING OLD RECCORDS...')
