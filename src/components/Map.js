@@ -38,6 +38,9 @@ class Map extends React.Component {
             case "North Macedonia":
               key = "MK";
               break;
+            case "Czech Republic (Czechia)":
+              key = "CZ";
+              break;
             default:
               key = undefined;
           }
