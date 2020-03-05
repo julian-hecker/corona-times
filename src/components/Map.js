@@ -52,7 +52,7 @@ class Map extends React.Component {
         <div className="map">
           <VectorMap
             map={"world_mill"}
-            backgroundColor="#341541"
+            backgroundColor="#131138"
             zoomOnScroll={false}
             containerStyle={{
               width: "100%",
@@ -77,7 +77,7 @@ class Map extends React.Component {
               regions: [
                 {
                   values: mapData, //this is your data
-                  scale: ["#aaaa00", "#ff0000"], //your color game's here
+                  scale: ["#dbfebd", "#ec5870"], //your color game's here
                   normalizeFunction: "polynomial"
                 }
               ]

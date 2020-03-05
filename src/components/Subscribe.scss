@@ -1,11 +1,11 @@
 form {
-    margin: 2rem auto;
-    padding: 10px;
-    max-width: 900px;
-    width: 100%;
-    background-color: #442255;
-    color: white;
-    text-align: center;
+  margin: 2rem auto;
+  padding: 10px;
+  max-width: 900px;
+  width: 100%;
+  background-color: #242948;
+  color: white;
+  text-align: center;
 }
 
 // label {
@@ -15,17 +15,16 @@ form {
 // }
 
 .input {
-    // max-width: 50%;
-    display: block;
-    padding: 10px;
-    margin: .5rem 0;
+  // max-width: 50%;
+  display: block;
+  padding: 10px;
+  margin: 0.5rem 0;
 }
 
-
-.btn.btn-warning {
-    margin-top: 1rem;
-    min-width: 100%;
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bolder;
+.btn.btn-info {
+  margin-top: 1rem;
+  min-width: 100%;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bolder;
 }
