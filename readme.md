@@ -4,6 +4,9 @@ http://coronatimes.online/
 
 This project was assembled at the 2020 Hack CEWIT Hackathon by [Ian Matlak](https://github.com/mnai), [Julian Hecker](https://github.com/julian-hecker), and [Philip Guerrero](https://github.com/guerpc).
 
+Updates after hackathon:
+- UI color scheme created by [Stefanie Mendoza](https://www.linkedin.com/in/stefanie-m-3b4832183/)
+
 ## Summary
 
 Corona Times Online aims to provide awareness to users about the 2020 Corona Virus outbreak, live data and updates about its spread, and what one can do to prevent getting sick.
