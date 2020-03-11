@@ -1,9 +1,9 @@
 <?php
     class Database {
-        private $hostname = '' ;
-        private $database = '' ;
-        private $username = '' ;
-        private $password = '' ;
+        private $hostname = 'localhost' ;
+        private $database = 'Coronadb' ;
+        private $username = 'user' ;
+        private $password = 'Im7654321' ;
         private $conn;
 
         public function connect() {
