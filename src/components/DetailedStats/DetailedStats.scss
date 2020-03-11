@@ -1,0 +1,20 @@
+.Stats-wrapper {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  margin: 2rem auto;
+  overflow-x: auto;
+}
+
+.box {
+  margin: auto;
+  padding: 2rem;
+  width: 100%;
+  background-color: #242948;
+  color: white;
+  font-family: "AVENIR", serif;
+  text-align: center;
+}
