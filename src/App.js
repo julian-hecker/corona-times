@@ -6,13 +6,16 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import Navbar from "./components/Navbar.js";
-import Map from "./components/Map.js";
-import Stats from "./components/Stats.js";
-import Table from "./components/Table.js";
-import Subscribe from "./components/Subscribe.js";
-import Survey from "./components/Survey.js";
-import Info from "./components/Info.js";
+import Navbar from "./components/Navbar/Navbar.js";
+import Map from "./components/Map/Map.js";
+import DetailedMap from "./components/DetailedMap/DetailedMap.js";
+import Stats from "./components/Stats/Stats.js";
+import DetailedStats from "./components/DetailedStats/DetailedStats.js";
+import Table from "./components/Table/Table.js";
+import DetailedTable from "./components/DetailedTable/DetailedTable.js";
+import Subscribe from "./components/Subscribe/Subscribe.js";
+import Survey from "./components/Survey/Survey.js";
+import Info from "./components/Info/Info.js";
 
 class App extends React.Component {
   constructor(props) {
@@ -21,7 +24,11 @@ class App extends React.Component {
       tableData: [],
       tableLoading: true,
       statsData: [],
-      statsLoading: true
+      statsLoading: true,
+      tableDatav2: [],
+      tableLoadingv2: true,
+      statsDatav2: [],
+      statsLoadingv2: true
     };
     this.fetchData = this.fetchData.bind(this);
   }
@@ -56,10 +63,45 @@ class App extends React.Component {
         // console.log(data['data']);
       })
       .catch(error => console.log(error));
+
+    fetch("https://www.ianmatlak.com:443/api/tablev2.php")
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.setState({
+          tableDatav2: data["data"],
+          tableLoadingv2: false
+        });
+        // console.log(data['data']);
+      })
+      .catch(error => console.log(error));
+
+    fetch("https://www.ianmatlak.com:443/api/statv2.php")
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.setState({
+          statsDatav2: data["data"],
+          statsLoadingv2: false
+        });
+        // console.log(data['data']);
+      })
+      .catch(error => console.log(error));
   }
 
   render() {
-    const { tableData, tableLoading, statsData, statsLoading } = this.state;
+    const {
+      tableData,
+      tableLoading,
+      statsData,
+      statsLoading,
+      tableDatav2,
+      tableLoadingv2,
+      statsDatav2,
+      statsLoadingv2
+    } = this.state;
 
     return (
       <div className="App">
@@ -70,10 +112,18 @@ class App extends React.Component {
               <Redirect to="/stats" />
             </Route>
             <Route path="/stats">
-              <Map stats={tableData} loading={tableLoading} />
-              <Stats stats={statsData} loading={statsLoading} />
-              <Table stats={tableData} loading={tableLoading} />
+              <DetailedMap stats={tableDatav2} loading={tableLoadingv2} />
+              <DetailedStats stats={statsDatav2} loading={statsLoadingv2} />
+              <DetailedTable stats={tableDatav2} loading={tableLoadingv2} />
               <Subscribe />
+            </Route>
+            <Route path="/stats-old">
+              <Route path="/stats-old">
+                <Map stats={tableData} loading={tableLoading} />
+                <Stats stats={statsData} loading={statsLoading} />
+                <Table stats={tableData} loading={tableLoading} />
+                <Subscribe />
+              </Route>
             </Route>
             <Route path="/info">
               <Info />
