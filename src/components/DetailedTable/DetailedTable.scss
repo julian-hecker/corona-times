@@ -1,0 +1,23 @@
+.table-wrapper {
+  overflow-x: auto;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+thead tr {
+  background-color: #1b2041;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #1b2041;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #242948;
+}
