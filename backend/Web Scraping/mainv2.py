@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import csv
 import connect
+import requests
 
 data = ''
 
@@ -15,6 +16,13 @@ urlopen(country_list_url).close()
 # need to install pip install lxml if you want to do xml
 # html parsing
 country_list_soup = BeautifulSoup(country_list_html, 'lxml')
+
+# gets our recent infected total from api
+results = requests.get('https://www.ianmatlak.com/api/statv2.php')
+json = results.json()
+dbTotalInfected = json['data'][0]['Total_Cases']
+dbTotalDead = json['data'][0]['Total_Deaths']
+dbTotalRecovered = json['data'][0]['Total_Recovered']
 
 
 with open('NewCountryCount.txtls', 'w') as file:
@@ -70,11 +78,17 @@ with open('NewCountryCount.txt', newline='\n') as csvfile:
             Serious_Critical = (f'{row[7]}')
             Tot_Cases_1Mil_Pop = (f'{row[8]}')
 
-            # Converts values into integers
+            # Converts values into integers and removed commas
             Total_Cases = int(Total_Cases.replace(',', ''))
             Active_Cases = int(Active_Cases.replace(',', ''))
-            sql = ('INSERT INTO tbl_OutbreakDetailed(Country,Total_Cases,New_Cases,Total_Deaths,New_Deaths,Total_Recovered,Active_Cases,Serious_Critical,TotCasesOf1MilPop) VALUES ('"'{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')").format(
-                Country, Total_Cases, New_Cases, Total_Deaths, New_Deaths, Total_Recovered, Active_Cases, Serious_Critical, Tot_Cases_1Mil_Pop)
-            mycursor.execute(sql)
-            connect.mysql.commit()
+
+            # compares if they are the same then end, if they are different then continue, prevents duplicate records in db
+            if(str(Total_Cases) == str(dbTotalInfected) and str(Total_Deaths) == str(dbTotalDead) and str(Total_Recovered) == str(dbTotalRecovered)):
+                print('true')
+                sys.exit()
+            else:
+                sql = ('INSERT INTO tbl_OutbreakDetailed(Country,Total_Cases,New_Cases,Total_Deaths,New_Deaths,Total_Recovered,Active_Cases,Serious_Critical,TotCasesOf1MilPop) VALUES ('"'{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')").format(
+                    Country, Total_Cases, New_Cases, Total_Deaths, New_Deaths, Total_Recovered, Active_Cases, Serious_Critical, Tot_Cases_1Mil_Pop)
+                mycursor.execute(sql)
+                connect.mysql.commit()
             line_count += 1
