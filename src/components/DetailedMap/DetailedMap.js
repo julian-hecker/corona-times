@@ -81,6 +81,12 @@ class DetailedMap extends React.Component {
             case "DRC":
               key = "CD";
               break;
+            case "DRC":
+              key = "CD";
+              break;
+            case "Ivory Coast":
+              key = "CI";
+              break;
             default:
               console.log(newcountryname);
               key = undefined;
