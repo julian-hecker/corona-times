@@ -49,7 +49,7 @@ class DetailedMap extends React.Component {
               key = "CZ";
               break;
             case "UK":
-              key = "UK";
+              key = "GB";
               break;
             case "UAE":
               key = "UAE";
