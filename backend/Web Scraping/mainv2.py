@@ -16,7 +16,7 @@ urlopen(country_list_url).close()
 # html parsing
 country_list_soup = BeautifulSoup(country_list_html, 'lxml')
 
-with open('NewCountryCount.txtls', 'w') as file:
+with open('NewCountryCount.txt', 'w') as file:
     for td_tag in country_list_soup.find_all('td'):
         file.write(td_tag.text)
         file.write('\n')
