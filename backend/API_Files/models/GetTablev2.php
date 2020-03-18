@@ -35,7 +35,8 @@
                     Serious_Critical,
                     TotCasesOf1MilPop
                 FROM {$this -> table}
-                WHere Country != 'total:'
+                WHERE Country != 'total:'
+                GROUP BY Country
                 ORDER BY Total_Cases DESC;";
 
             // Prepare Query Statement
