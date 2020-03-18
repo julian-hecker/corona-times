@@ -18,12 +18,11 @@ class DetailedMap extends React.Component {
         // This removed only the extra white space in the beginning of the string
         let countryname = item.Country.replace(" ", "");
         // This is then used to remove the white space at the end of the string
-        var newcountryname = countryname.substring(0, countryname.length - 1);
-
-        let key = countries.getAlpha2Code(newcountryname, "en");
+        // var newcountryname = countryname.substring(0, countryname.length -1);
+        let key = countries.getAlpha2Code(countryname, "en");
         if (!key) {
           // Sometimes countries don't get coded
-          switch (newcountryname) {
+          switch (countryname) {
             case "USA":
               key = "US";
               break;
@@ -88,7 +87,7 @@ class DetailedMap extends React.Component {
               key = "CI";
               break;
             default:
-              console.log(newcountryname);
+              console.log(countryname);
               key = undefined;
           }
         }
