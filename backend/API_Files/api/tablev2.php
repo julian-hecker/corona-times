@@ -38,7 +38,9 @@
                 'Total_Recovered' => $Total_Recovered,
                 'Active_Cases' => $Active_Cases,
                 'Serious_Critical' => $Serious_Critical,
-                'TotCasesOf1MilPop' => $TotCasesOf1MilPop
+                'TotCasesOf1MilPop' => $TotCasesOf1MilPop,
+                'TotDeathsOf1MilPop' => $TotDeathsOf1MilPop
+
             );
             // Push to data array
             array_push($table_arr['data'], $row_item);

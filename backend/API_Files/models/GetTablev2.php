@@ -33,7 +33,8 @@
                     Total_Recovered,
                     Active_Cases,
                     Serious_Critical,
-                    TotCasesOf1MilPop
+                    TotCasesOf1MilPop,
+                    TotDeathsOf1MilPop
                 FROM {$this -> table}
                 WHERE Country != 'total:'
                 GROUP BY Country
