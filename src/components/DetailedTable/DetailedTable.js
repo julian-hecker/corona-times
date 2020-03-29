@@ -21,6 +21,8 @@ class DetailedTable extends React.Component {
                 <th>Active Cases</th>
                 <th>Serious, Critical</th>
                 <th>Total Cases / 1Mil Pop</th>
+                <th>Total Deaths / 1Mil Pop</th>
+                <th>First Case</th>
               </tr>
             </thead>
             <tbody>
@@ -36,6 +38,8 @@ class DetailedTable extends React.Component {
                     <td>{item.Active_Cases}</td>
                     <td>{item.Serious_Critical}</td>
                     <td>{item.TotCasesOf1MilPop}</td>
+                    <td>{item.TotDeathsOf1MilPop}</td>
+                    <td>{item.First_Case}</td>
                   </tr>
                 );
               })}
