@@ -12,34 +12,36 @@ class DetailedTable extends React.Component {
           <Table dark>
             <thead>
               <tr>
+                <th>#</th>
                 <th>Country</th>
                 <th>Total Cases</th>
-                <th>New Cases</th>
                 <th>Total Deaths</th>
-                <th>New Deaths</th>
                 <th>Total Recovered</th>
                 <th>Active Cases</th>
                 <th>Serious, Critical</th>
+                <th>First Case</th>
                 <th>Total Cases / 1Mil Pop</th>
                 <th>Total Deaths / 1Mil Pop</th>
-                <th>First Case</th>
+                <th>New Cases</th>
+                <th>New Deaths</th>
               </tr>
             </thead>
             <tbody>
-              {stats.map(item => {
+              {stats.map((item, number) => {
                 return (
                   <tr key={uuid()}>
+                    <th>{number + 1}</th>
                     <th scope="row">{item.Country}</th>
                     <td>{item.Total_Cases}</td>
-                    <td>{item.New_Cases}</td>
                     <td>{item.Total_Deaths}</td>
-                    <td>{item.New_Deaths}</td>
                     <td>{item.Total_Recovered}</td>
                     <td>{item.Active_Cases}</td>
                     <td>{item.Serious_Critical}</td>
+                    <td>{item.First_Case}</td>
                     <td>{item.TotCasesOf1MilPop}</td>
                     <td>{item.TotDeathsOf1MilPop}</td>
-                    <td>{item.First_Case}</td>
+                    <td>{item.New_Cases}</td>
+                    <td>{item.New_Deaths}</td>
                   </tr>
                 );
               })}
