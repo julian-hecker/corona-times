@@ -51,7 +51,7 @@ class DetailedMap extends React.Component {
               key = "GB";
               break;
             case "UAE":
-              key = "UAE";
+              key = "AE";
               break;
             case "Palestine":
               key = "PS";
@@ -88,6 +88,15 @@ class DetailedMap extends React.Component {
               break;
             case "CAR":
               key = "CF";
+              break;
+            case "Tanzania":
+              key = "TZ";
+              break;
+            case "Syria":
+              key = "SY";
+              break;
+            case "Laos":
+              key = "LA";
               break;
             default:
               console.log(countryname);
