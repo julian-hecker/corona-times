@@ -35,9 +35,9 @@ with open('NewCountryCount.txt', 'w') as file:
     # sets variable to equal a function that returns a list of lines
     # essentially it makes each line be represented by lines_iters
     lines_iters = iter(data.splitlines())
-    file.write("Country;Total Cases;New Cases;Total Deaths;New Deaths;Total Recovered;Active Cases;Serious Critical;Total Cases/1Million Population;Total Deaths/1Million Population;First Case;\n")
+    file.write("Country;Total Cases;New Cases;Total Deaths;New Deaths;Total Recovered;Active Cases;Serious Critical;Total Cases/1Million Population;Total Deaths/1Million Population;\n")
     # takes the 1st 4 elements in the iterable and put them in country_infected_deaths_continent
-    for country_infected_deaths_continent in zip(lines_iters, lines_iters, lines_iters, lines_iters, lines_iters, lines_iters, lines_iters, lines_iters, lines_iters, lines_iters, lines_iters):
+    for country_infected_deaths_continent in zip(lines_iters, lines_iters, lines_iters, lines_iters, lines_iters, lines_iters, lines_iters, lines_iters, lines_iters, lines_iters):
         print('Re-Formatting Data to file...')
         # joins the data and seperates each part with a space
         print(" ".join(country_infected_deaths_continent))
@@ -45,7 +45,7 @@ with open('NewCountryCount.txt', 'w') as file:
         file.write(";".join(country_infected_deaths_continent))
         # after each section is done do a new line.
         file.write('\n')
-    file
+    file.close()
 
 
 with open('NewCountryCount.txt', newline='\n') as csvfile:
@@ -65,7 +65,7 @@ with open('NewCountryCount.txt', newline='\n') as csvfile:
             line_count += 1
         else:
             print('Sending Data to Database...',
-                  f'Country: {row[0]} Total Cases: {row[1]} New Cases: {row[2]} Total Deaths: {row[3]} New Deaths: {row[4]} Total Recovered: {row[5]} Active Cases: {row[6]} Serious Critical: {row[7]} Tot Cases/1Mil Pop: {row[8]} Tot Deaths/1Mil Pop: {row[9]} First_Case: {row[10]}')
+                  f'Country: {row[0]} Total Cases: {row[1]} New Cases: {row[2]} Total Deaths: {row[3]} New Deaths: {row[4]} Total Recovered: {row[5]} Active Cases: {row[6]} Serious Critical: {row[7]} Tot Cases/1Mil Pop: {row[8]} Tot Deaths/1Mil Pop: {row[9]}')
             Country = (f'{row[0]}')
             Total_Cases = (f'{row[1]}')
             New_Cases = (f'{row[2]}')
@@ -76,14 +76,13 @@ with open('NewCountryCount.txt', newline='\n') as csvfile:
             Serious_Critical = (f'{row[7]}')
             Tot_Cases_1Mil_Pop = (f'{row[8]}')
             Tot_Deaths_1Mil_Pop = (f'{row[9]}')
-            First_Case = (f'{row[10]}')
 
             # Converts values into integers
             Total_Deaths = Total_Deaths.replace(' ', '')
             Total_Cases = int(Total_Cases.replace(',', ''))
             Active_Cases = int(Active_Cases.replace(',', ''))
-            sql = ('INSERT INTO tbl_OutbreakDetailed(Country,Total_Cases,New_Cases,Total_Deaths,New_Deaths,Total_Recovered,Active_Cases,Serious_Critical,TotCasesOf1MilPop,TotDeathsOf1MilPop,First_Case) VALUES ('"'{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}' )").format(
-                Country, Total_Cases, New_Cases, Total_Deaths, New_Deaths, Total_Recovered, Active_Cases, Serious_Critical, Tot_Cases_1Mil_Pop, Tot_Deaths_1Mil_Pop, First_Case)
+            sql = ('INSERT INTO tbl_OutbreakDetailed(Country,Total_Cases,New_Cases,Total_Deaths,New_Deaths,Total_Recovered,Active_Cases,Serious_Critical,TotCasesOf1MilPop,TotDeathsOf1MilPop) VALUES ('"'{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}' )").format(
+                Country, Total_Cases, New_Cases, Total_Deaths, New_Deaths, Total_Recovered, Active_Cases, Serious_Critical, Tot_Cases_1Mil_Pop, Tot_Deaths_1Mil_Pop)
             mycursor.execute(sql)
             connect.mysql.commit()
             line_count += 1

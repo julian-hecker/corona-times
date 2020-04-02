@@ -40,7 +40,6 @@
                 'Serious_Critical' => $Serious_Critical,
                 'TotCasesOf1MilPop' => $TotCasesOf1MilPop,
                 'TotDeathsOf1MilPop' => $TotDeathsOf1MilPop,
-                'First_Case' => $First_Case
 
             );
             // Push to data array

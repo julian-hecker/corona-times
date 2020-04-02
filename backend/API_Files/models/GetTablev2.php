@@ -14,7 +14,6 @@
         public $active_cases;
         public $serious_critical;
         public $total_case_of_1mil_pop;
-        public $first_case;
 
 
         // Constructor
@@ -35,8 +34,7 @@
                     Active_Cases,
                     Serious_Critical,
                     TotCasesOf1MilPop,
-                    TotDeathsOf1MilPop,
-                    First_Case
+                    TotDeathsOf1MilPop
                 FROM {$this -> table}
                 WHERE Country != 'total:' && Country != 'World'
                 GROUP BY Country
