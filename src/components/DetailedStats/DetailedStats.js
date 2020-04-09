@@ -7,7 +7,7 @@ class DetailedStats extends React.Component {
   render() {
     let stats = null;
     this.props.stats.map((res) => {
-      if (res.country == "World") {
+      if (res.country === "All") {
         stats = res;
       }
     });
