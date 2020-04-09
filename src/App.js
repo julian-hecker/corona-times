@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar.js";
 import Map from "./components/Map/Map.js";
@@ -28,7 +28,7 @@ class App extends React.Component {
       tableDatav2: [],
       tableLoadingv2: true,
       statsDatav2: [],
-      statsLoadingv2: true
+      statsLoadingv2: true,
     };
     this.fetchData = this.fetchData.bind(this);
   }
@@ -39,56 +39,48 @@ class App extends React.Component {
 
   fetchData() {
     fetch("https://www.ianmatlak.com:443/api/table.php")
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         this.setState({
           tableData: data["data"],
-          tableLoading: false
+          tableLoading: false,
         });
         // console.log(data['data']);
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
 
     fetch("https://www.ianmatlak.com:443/api/stat.php")
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         this.setState({
           statsData: data["data"],
-          statsLoading: false
+          statsLoading: false,
         });
         // console.log(data['data']);
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
 
-    fetch("https://www.ianmatlak.com:443/api/tablev2.php")
-      .then(response => {
+    fetch("https://covid-193.p.rapidapi.com/statistics", {
+      headers: {
+        "x-rapidapi-host": "covid-193.p.rapidapi.com",
+        "x-rapidapi-key": "e060ce6c8fmsh5404eaabe6d29f6p1d2845jsn9e8347027e2a",
+      },
+    })
+      .then((response) => {
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
+        console.log(data["response"]);
         this.setState({
-          tableDatav2: data["data"],
-          tableLoadingv2: false
+          tableDatav2: data["response"],
+          tableLoadingv2: false,
         });
-        // console.log(data['data']);
       })
-      .catch(error => console.log(error));
-
-    fetch("https://www.ianmatlak.com:443/api/statv2.php")
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        this.setState({
-          statsDatav2: data["data"],
-          statsLoadingv2: false
-        });
-        // console.log(data['data']);
-      })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   }
 
   render() {
@@ -100,7 +92,7 @@ class App extends React.Component {
       tableDatav2,
       tableLoadingv2,
       statsDatav2,
-      statsLoadingv2
+      statsLoadingv2,
     } = this.state;
 
     return (
@@ -113,7 +105,7 @@ class App extends React.Component {
             </Route>
             <Route path="/stats">
               <DetailedMap stats={tableDatav2} loading={tableLoadingv2} />
-              <DetailedStats stats={statsDatav2} loading={statsLoadingv2} />
+              <DetailedStats stats={tableDatav2} loading={tableLoadingv2} />
               <DetailedTable stats={tableDatav2} loading={tableLoadingv2} />
               <Subscribe />
             </Route>

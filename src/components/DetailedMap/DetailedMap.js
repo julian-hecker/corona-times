@@ -14,9 +14,9 @@ class DetailedMap extends React.Component {
     let mapData = {};
 
     if (stats) {
-      stats.forEach(item => {
+      stats.forEach((item) => {
         // This removed only the extra white space in the beginning of the string
-        let countryname = item.Country; //.replace(" ", "");
+        let countryname = item.country.replace("-", " ");
         // This is then used to remove the white space at the end of the string
         // var newcountryname = countryname.substring(0, countryname.length -1);
         let key = countries.getAlpha2Code(countryname, "en");
@@ -38,7 +38,7 @@ class DetailedMap extends React.Component {
             case "Iran":
               key = "IR";
               break;
-            case "Diamond Princess":
+            case "Diamond-Princess-":
               key = "JP";
               break;
             case "North Macedonia":
@@ -103,7 +103,7 @@ class DetailedMap extends React.Component {
               key = undefined;
           }
         }
-        mapData[key] = item.Total_Cases;
+        mapData[key] = item.cases.total;
       });
 
       return (
@@ -114,7 +114,7 @@ class DetailedMap extends React.Component {
             zoomOnScroll={false}
             containerStyle={{
               width: "100%",
-              height: "50vh"
+              height: "50vh",
             }}
             onRegionClick={handleClick} //gets the country code
             containerClassName="map-container"
@@ -124,21 +124,21 @@ class DetailedMap extends React.Component {
                 "fill-opacity": 0.9,
                 stroke: "none",
                 "stroke-width": 0,
-                "stroke-opacity": 0
+                "stroke-opacity": 0,
               },
               hover: {
                 "fill-opacity": 0.8,
-                cursor: "pointer"
-              }
+                cursor: "pointer",
+              },
             }}
             series={{
               regions: [
                 {
                   values: mapData, //this is your data
                   scale: ["#dbfebd", "#ec5870"], //your color game's here
-                  normalizeFunction: "polynomial"
-                }
-              ]
+                  normalizeFunction: "polynomial",
+                },
+              ],
             }}
           />
         </div>

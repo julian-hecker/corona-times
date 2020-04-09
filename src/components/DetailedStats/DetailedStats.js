@@ -5,7 +5,13 @@ import "./DetailedStats.scss";
 
 class DetailedStats extends React.Component {
   render() {
-    const stats = this.props.stats[0];
+    let stats = null;
+    this.props.stats.map((res) => {
+      if (res.country == "World") {
+        stats = res;
+      }
+    });
+    console.log("THIS IS STAT" + stats);
     // if (stats) {
     return (
       <div className="Stats-wrapper">
@@ -14,7 +20,7 @@ class DetailedStats extends React.Component {
             <Spinner />
           ) : (
             <div>
-              <h1>{stats["Total_Cases"]}</h1>
+              <h1>{stats.cases.total}</h1>
               <h5>Total Infected</h5>
             </div>
           )}
@@ -24,7 +30,7 @@ class DetailedStats extends React.Component {
             <Spinner />
           ) : (
             <div>
-              <h1>{stats["Total_Deaths"]}</h1>
+              <h1>{stats.deaths.total}</h1>
               <h5>Total Dead</h5>
             </div>
           )}
@@ -34,7 +40,7 @@ class DetailedStats extends React.Component {
             <Spinner />
           ) : (
             <div>
-              <h1>{stats["Total_Recovered"]}</h1>
+              <h1>{stats.cases.recovered}</h1>
               <h5>Total Cured</h5>
             </div>
           )}
