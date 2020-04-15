@@ -21,8 +21,6 @@ class DetailedTable extends React.Component {
                 <th>Total Recovered</th>
                 <th>Active Cases</th>
                 <th>Serious, Critical</th>
-                <th>Total Cases / 1Mil Pop</th>
-                <th>Total Deaths / 1Mil Pop</th>
               </tr>
             </thead>
             <tbody>
@@ -30,16 +28,14 @@ class DetailedTable extends React.Component {
                 return (
                   <tr key={uuid()}>
                     <th>{number + 1}</th>
-                    <th scope="row">{item.Country}</th>
-                    <td>{item.New_Cases}</td>
-                    <td>{item.New_Deaths}</td>
-                    <td>{item.Total_Cases}</td>
-                    <td>{item.Total_Deaths}</td>
-                    <td>{item.Total_Recovered}</td>
-                    <td>{item.Active_Cases}</td>
-                    <td>{item.Serious_Critical}</td>
-                    <td>{item.TotCasesOf1MilPop}</td>
-                    <td>{item.TotDeathsOf1MilPop}</td>
+                    <th scope="row">{item.country}</th>
+                    <td>{item.cases.new}</td>
+                    <td>{item.deaths.new}</td>
+                    <td>{item.cases.total}</td>
+                    <td>{item.deaths.total}</td>
+                    <td>{item.cases.recovered}</td>
+                    <td>{item.cases.active}</td>
+                    <td>{item.cases.critical}</td>
                   </tr>
                 );
               })}
