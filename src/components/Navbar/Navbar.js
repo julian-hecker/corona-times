@@ -25,10 +25,10 @@ const Example = (props) => {
                         <NavLink href="/stats">Statistics</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="/info/">Information</NavLink>
+                        <NavLink href="/info">Information</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="/form/">Survey</NavLink>
+                        <NavLink href="/form">Survey</NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink href="https://github.com/julian-hecker/corona-times">Code</NavLink>
