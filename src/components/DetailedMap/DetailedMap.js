@@ -26,7 +26,7 @@ class DetailedMap extends React.Component {
             case "USA":
               key = "US";
               break;
-            case "S. Korea":
+            case "S Korea":
               key = "KR";
               break;
             case "Vietnam":
