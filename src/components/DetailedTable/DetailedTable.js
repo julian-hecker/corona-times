@@ -12,33 +12,33 @@ class DetailedTable extends React.Component {
           <Table dark>
             <thead>
               <tr>
-                <th>#</th>
-                <th>Country</th>
-                <th>New Cases</th>
-                <th>New Deaths</th>
+                <th>Region</th>
                 <th>Total Cases</th>
                 <th>Total Deaths</th>
                 <th>Total Recovered</th>
                 <th>Active Cases</th>
-                <th>Serious, Critical</th>
+                {/* <th>Serious, Critical</th> */}
+                <th>New Cases</th>
+                <th>New Deaths</th>
               </tr>
             </thead>
             <tbody>
-              {stats.map((item, number) => {
-                return (
-                  <tr key={uuid()}>
-                    <th>{number + 1}</th>
-                    <th scope="row">{item.country}</th>
-                    <td>{item.cases.new}</td>
-                    <td>{item.deaths.new}</td>
-                    <td>{item.cases.total}</td>
-                    <td>{item.deaths.total}</td>
-                    <td>{item.cases.recovered}</td>
-                    <td>{item.cases.active}</td>
-                    <td>{item.cases.critical}</td>
-                  </tr>
-                );
-              })}
+              {stats
+                .sort((a, b) => b.cases.total - a.cases.total)
+                .map((item) => {
+                  return (
+                    <tr key={uuid()}>
+                      <th scope="row">{item.country}</th>
+                      <td>{item.cases.total}</td>
+                      <td>{item.cases.active}</td>
+                      <td>{item.deaths.total}</td>
+                      <td>{item.cases.recovered}</td>
+                      {/* <td>{item.cases.critical}</td> */}
+                      <td>{item.cases.new}</td>
+                      <td>{item.deaths.new}</td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </Table>
         </div>
