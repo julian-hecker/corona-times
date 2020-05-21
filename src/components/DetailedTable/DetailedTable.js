@@ -14,9 +14,9 @@ class DetailedTable extends React.Component {
               <tr>
                 <th>Region</th>
                 <th>Total Cases</th>
+                <th>Active Cases</th>
                 <th>Total Deaths</th>
                 <th>Total Recovered</th>
-                <th>Active Cases</th>
                 {/* <th>Serious, Critical</th> */}
                 <th>New Cases</th>
                 <th>New Deaths</th>
